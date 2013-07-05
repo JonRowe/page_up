@@ -6,7 +6,7 @@ require 'page_up/version'
 Gem::Specification.new do |spec|
   spec.name          = "page_up"
   spec.version       = PageUp::VERSION
-  spec.required_ruby_version = ">= 1.9.3"
+  spec.required_ruby_version = ">= 1.9.2"
   spec.authors       = ["Jon Rowe"]
   spec.email         = ["hello@jonrowe.co.uk"]
   spec.description   = %q{Simple paginator}
