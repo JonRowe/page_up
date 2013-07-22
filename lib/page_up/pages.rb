@@ -9,7 +9,11 @@ module PageUp
     end
 
     def pages
-      (@origin.size.to_f / per_page).ceil
+      if @origin.size > 0
+        (@origin.size.to_f / per_page).ceil
+      else
+        1
+      end
     end
 
     def current_slice
@@ -44,7 +48,7 @@ module PageUp
       end
 
       def slice_end
-        if page + 2 > pages
+        if page + 2 > pages || pages < 5
           pages
         elsif page - 2 <= 0
           5

@@ -26,7 +26,14 @@ describe "pagination" do
     expect(PageUp[collection,1,5].pages).to eq 3
   end
 
+  it 'handles no pages as 1 empty page' do
+    expect(PageUp[[],1,5].pages).to eq 1
+  end
+
+
   describe 'picking the current slice' do
+    specify { expect(PageUp[[],1,1].current_slice).to eq 1..1 }
+    specify { expect(PageUp[[1,2,3],1,1].current_slice).to eq 1..3 }
     specify { expect(PageUp[collection,1,1].current_slice).to eq 1..5 }
     specify { expect(PageUp[collection,2,1].current_slice).to eq 1..5 }
     specify { expect(PageUp[collection,3,1].current_slice).to eq 1..5 }
