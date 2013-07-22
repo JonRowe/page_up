@@ -1,4 +1,5 @@
 # PageUp
+[![Build Status](https://secure.travis-ci.org/JonRowe/page_up.png)](http://travis-ci.org/JonRowe/page_up) [![Code Climate](https://codeclimate.com/github/JonRowe/page_up.png)](https://codeclimate.com/github/JonRowe/page_up)
 
 PageUp is a simple pagination gem, the idea being to use composition and
 decoration of objects (rather than mixing into ActiveRecord) to divy up a
