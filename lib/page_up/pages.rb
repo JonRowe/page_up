@@ -1,3 +1,4 @@
+require 'delegate'
 module PageUp
   class Pages < SimpleDelegator
 

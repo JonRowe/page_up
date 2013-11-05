@@ -1,4 +1,5 @@
 require 'page_up/pages'
+require 'page_up/fragment'
 
 module PageUp
 

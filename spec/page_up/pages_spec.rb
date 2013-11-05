@@ -1,4 +1,3 @@
-require 'delegate'
 require 'page_up'
 
 describe "pagination" do
