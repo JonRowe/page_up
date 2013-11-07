@@ -5,6 +5,13 @@ describe 'fragmented pages' do
   let(:fragment) { (21..40 ).to_a }
   let(:pages)    { PageUp::Fragment.new fragment, 2, 20 }
 
+  it 'guesses the size based on fragment and page number' do
+    expect(pages.size).to eq 40
+  end
+  it 'can be configured to take a size' do
+    expect(PageUp::Fragment.new([], 2, 20, 60).size).to eq 60
+  end
+
   context 'when the range requested is within the fragment' do
     it 'returns the local results' do
       expect(pages[20...40]).to eq fragment

@@ -2,10 +2,13 @@ module PageUp
   class Fragment
     NullResult = 'NullResult'
 
-    def initialize fragment, page, per_page
-      @page, @per_page = page, per_page
+    def initialize fragment, page, per_page, total = nil
+      @page     = page
+      @per_page = per_page
+      @size     = total || (fragment.size + offset)
       @fragment = [].fill(NullResult, 0, offset) + fragment
     end
+    attr_reader :size
 
     def [] range
       until covers? range
