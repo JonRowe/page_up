@@ -46,6 +46,12 @@ describe 'fragmented pages' do
     it 'will return the desired fragment' do
       expect(pages[70...90]).to eq (71..90).to_a
     end
+
+    it 'protects against ranges that exceed the existing data' do
+      Timeout.timeout(0.3) do
+        expect(pages[90...110]).to eq (91..100).to_a
+      end
+    end
   end
 
 end

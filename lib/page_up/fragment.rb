@@ -14,11 +14,12 @@ module PageUp
       until covers? range
         next_page = page_for(range)
         result = @callback.call next_page, @per_page
-        result.each_with_index do |value, index|
+        @per_page.times do |index|
+          value = result[index]
           @fragment[index + offset(next_page)] = value
         end
       end
-      @fragment[range]
+      @fragment[range].compact
     end
 
     def use &block
