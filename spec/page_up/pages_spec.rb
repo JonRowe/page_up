@@ -34,6 +34,10 @@ describe "pagination" do
     expect(PageUp[(1..100).to_a,1,5].total_size).to eq 100
   end
 
+  it 'allows override of total size' do
+    expect(PageUp[(1..10).to_a,1,5, total_size: 100].total_size).to eq 100
+  end
+
   describe 'picking the current slice' do
     specify { expect(PageUp[[],1,1].current_slice).to eq 1..1 }
     specify { expect(PageUp[[1,2,3],1,1].current_slice).to eq 1..3 }

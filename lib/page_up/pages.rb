@@ -2,20 +2,21 @@ require 'delegate'
 module PageUp
   class Pages < SimpleDelegator
 
-    def initialize collection, page, per_page
+    def initialize collection, page, per_page, opts = {}
       @page     = parse page, 1
       @per_page = parse per_page, 25
       @origin   = collection
+      @opts     = opts
       super collection[page_range]
     end
 
     def total_size
-      @origin.size
+      @opts.fetch(:total_size) { @origin.size }
     end
 
     def pages
-      if @origin.size > 0
-        (@origin.size.to_f / per_page).ceil
+      if total_size > 0
+        (total_size.to_f / per_page).ceil
       else
         1
       end
