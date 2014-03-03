@@ -16,9 +16,10 @@ describe "pagination" do
   end
 
   it 'paginates collections above page count' do
-    expect(PageUp[collection,1,5]).to eq [1,2,3,4,5]
-    expect(PageUp[collection,2,5]).to eq [6,7,8,9,10]
-    expect(PageUp[collection,3,5]).to eq [11,12]
+    expect(PageUp[collection,1,3]).to eq [1, 2, 3]
+    expect(PageUp[collection,2,3]).to eq [4, 5, 6]
+    expect(PageUp[collection,3,3]).to eq [7, 8, 9]
+    expect(PageUp[collection,4,3]).to eq [10, 11, 12]
   end
 
   it 'counts pages' do
