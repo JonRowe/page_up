@@ -53,6 +53,9 @@ describe "pagination" do
     specify { expect(PageUp[collection,10,1].current_slice).to eq 8..12 }
     specify { expect(PageUp[collection,11,1].current_slice).to eq 8..12 }
     specify { expect(PageUp[collection,12,1].current_slice).to eq 8..12 }
+    specify { expect(PageUp[collection,1,5].current_slice).to eq 1..3 }
+    specify { expect(PageUp[collection,2,5].current_slice).to eq 1..3 }
+    specify { expect(PageUp[collection,3,5].current_slice).to eq 1..3 }
   end
 
 end

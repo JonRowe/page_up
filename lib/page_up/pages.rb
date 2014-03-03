@@ -45,13 +45,8 @@ module PageUp
     end
 
     def slice_start
-      if page - 2 <= 0
-        1
-      elsif page + 2 > pages
-        pages - 4
-      else
-        page - 2
-      end
+      start = pages - ((page + 2 > pages) ? 4 : 2)
+      start > 0 ? start : 1
     end
 
     def slice_end
