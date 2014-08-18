@@ -22,6 +22,10 @@ module PageUp
       @fragment[range].compact
     end
 
+    def to_a
+      self[0..@size].to_a
+    end
+
     def use &block
       @callback = block
     end

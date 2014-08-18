@@ -20,6 +20,7 @@ describe 'fragmented pages' do
 
   context 'when the range is outside the fragment' do
     let(:pages_requested) { [] }
+    let(:pages) { PageUp::Fragment.new fragment, 2, 20, source.size }
 
     before do
       pages.use do |page, per_page|
@@ -38,6 +39,10 @@ describe 'fragmented pages' do
       expect(pages_requested).to eq [[4,20]]
     end
 
+    it 'will retrieve earlier results if it has to' do
+      expect(pages[0...20]).to eq (1..20).to_a
+    end
+
     it 'will call the block multiple times if required' do
       pages[70...90]
       expect(pages_requested).to eq [[4,20],[5,20]]
@@ -45,6 +50,10 @@ describe 'fragmented pages' do
 
     it 'will return the desired fragment' do
       expect(pages[70...90]).to eq (71..90).to_a
+    end
+
+    it 'will collect all results if necessary' do
+      expect(pages.to_a).to eq source
     end
 
     it 'protects against ranges that exceed the existing data' do
