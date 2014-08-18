@@ -58,4 +58,11 @@ describe "pagination" do
     specify { expect(PageUp[collection,3,5].current_slice).to eq 1..3 }
   end
 
+  it "handles partial pages" do
+    expect(PageUp[(1..5).to_a,1, 10]).to eq (1..5).to_a
+  end
+
+  it "handles pages out of range" do
+    expect(PageUp[(1..5).to_a,2, 10]).to eq []
+  end
 end

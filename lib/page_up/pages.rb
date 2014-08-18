@@ -7,7 +7,7 @@ module PageUp
       @per_page = parse per_page, 25
       @origin   = collection
       @opts     = opts
-      super collection[page_range]
+      super (collection[page_range] || [])
     end
 
     def total_size
