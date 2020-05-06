@@ -19,10 +19,12 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(spec|features)/})
   spec.require_paths = ["lib"]
 
-  if RUBY_VERSION >= '1.9.3'
-    spec.add_development_dependency "rake", '~> 11.0'
-  else
+  if RUBY_VERSION.to_f < 2
     spec.add_development_dependency "rake", '~> 10.0'
+  elsif RUBY_VERSION.to_f < 2.3
+    spec.add_development_dependency "rake", '~> 12.0'
+  else
+    spec.add_development_dependency "rake", '~> 13.0'
   end
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rspec",   "~> 3.9.0"
