@@ -1,11 +1,16 @@
+# required for ruby below 2.3
+dist: trusty
 language: ruby
 before_install: gem update bundler
 rvm:
-  - 2.3.1
+  - 2.7.1
+  - 2.6.6
+  - 2.5.8
+  - 2.4.10
+  - 2.3.8
   - 2.2
   - 2.1
   - 2.0.0
   - 1.9.3
   - 1.9.2
   - jruby-19mode
-  - rbx-2

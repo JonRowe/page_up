@@ -1,4 +1,5 @@
 require 'page_up/fragment'
+require 'timeout'
 
 describe 'fragmented pages' do
   let(:source)   { ( 1..100).to_a }
